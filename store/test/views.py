@@ -12,7 +12,7 @@ from rest_framework.filters import SearchFilter
 from django_filters.rest_framework import DjangoFilterBackend
 
 # Create your views here.
-
+#ProductList is the one which contains both filter and search ..
 class ProductList(ListAPIView):
      queryset=Product.objects.all()
      serializer_class=ProductSerializer
