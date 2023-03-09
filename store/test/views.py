@@ -8,13 +8,17 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from rest_framework.generics import ListAPIView
+from rest_framework.filters import SearchFilter
+from django_filters.rest_framework import DjangoFilterBackend
 
 # Create your views here.
 
 class ProductList(ListAPIView):
      queryset=Product.objects.all()
      serializer_class=ProductSerializer
+     filter_backends=(DjangoFilterBackend,SearchFilter)
      filterset_fields=['name']
+     search_fields=['name']
     
 class ProductDetail(APIView):
      def get(self,request,id):
